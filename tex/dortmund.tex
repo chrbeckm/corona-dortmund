@@ -1,0 +1,43 @@
+\documentclass[german]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage[ngerman]{babel}
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage[top=0mm, right=0mm, bottom=10mm, left=1mm]{geometry}
+\usepackage[german]{datetime2}
+%\usepackage{lua-visual-debug}
+\begin{document}
+  \thispagestyle{empty}
+  \begin{landscape}
+    \textbf{\Large Daten vom \DTMnow}
+    \hfill
+    {\tiny
+      Die Zahlen werden einmal am Tag aktualisiert,
+      die angegebene Uhrzeit ist die des Downloads.
+    }
+    \begin{figure}
+      \centering
+      \begin{subfigure}{.665\textwidth}
+        \includegraphics[width=.9\textwidth]{build/faelle-pro-tag.pdf}
+      \end{subfigure}
+      \hfill
+      \begin{subfigure}{.665\textwidth}
+        \includegraphics[width=.9\textwidth]{build/aktuellVSinzidenz.pdf}
+      \end{subfigure}
+    \end{figure}
+    \begin{figure}
+        \centering
+      \begin{subfigure}{.665\textwidth}
+        \includegraphics[width=.9\textwidth]{build/aktuell.pdf}
+      \end{subfigure}
+      \hfill
+      \begin{subfigure}{.665\textwidth}
+        \includegraphics[width=.9\textwidth]{build/insgesamt.pdf}
+      \end{subfigure}
+    \end{figure}
+  \end{landscape}
+\end{document}
