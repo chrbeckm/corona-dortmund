@@ -46,7 +46,7 @@ plt.title(
 plt.legend(loc="upper left")
 tickse()
 plt.xlim(-1, data["Datum"].size)
-    plt.savefig("build/faelle-pro-tag.pdf")
+plt.savefig("build/faelle-pro-tag.pdf")
 
 
 plt.figure(constrained_layout=True)
@@ -86,8 +86,7 @@ plt.legend()
 tickse()
 plt.xlim(-1, data["Datum"].size)
 plt.ylim(0, np.max(data["positive_Testergebnisse_insgesamt"]) * 1.05)
-for ending in [".png", ".pdf"]:
-    plt.savefig("build/insgesamt.pdf")
+plt.savefig("build/insgesamt.pdf")
 
 
 plt.figure(constrained_layout=True)
@@ -110,8 +109,7 @@ plt.legend()
 tickse()
 plt.xlim(-1, data["Datum"].size)
 plt.ylim(0, np.max(data["aktuell_erkrankte_Personen"]) * 1.05)
-for ending in [".png", ".pdf"]:
-    plt.savefig("build/aktuell.pdf")
+plt.savefig("build/aktuell.pdf")
 
 
 fig, ax = plt.subplots(constrained_layout=True)
@@ -132,7 +130,5 @@ ax.set_xlim(-1, data["Datum"].size)
 ax.set_xticks(data["Datum"][::-14][::-1])
 ax.set_xticklabels(data["Datum"][::-14][::-1], rotation=90)
 
-plt.legend()
-
-for ending in [".png", ".pdf"]:
-    plt.savefig("build/aktuellVSinzidenz.pdf")
+plt.legend(loc='upper left')
+plt.savefig("build/aktuellVSinzidenz.pdf")

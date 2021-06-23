@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 data = np.genfromtxt(
     "build/FB53-Coronafallzahlen-Altersinzidenzen.csv",
     delimiter=";",
@@ -12,7 +11,7 @@ data = np.genfromtxt(
 
 spalten = data.dtype.names
 
-plt.figure(constrained_layout=True, figsize=(5, 5))
+plt.figure(constrained_layout=True)
 plt.title("Inzidenz nach Altersgruppen")
 
 for i in range(7):

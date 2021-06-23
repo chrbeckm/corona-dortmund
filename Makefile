@@ -1,11 +1,12 @@
 GOOGLEPATH=/mnt/e/cloud-google/corona
 
-all: build/dortmund.pdf \
-	build/insta_story.png \
+all: build/insta_story.png \
+	build/dortmund.pdf \
 	build/bezirke_insta.png \
 	build/r-wert.pdf \
 	build/altersinzidenz.pdf \
-	build/virusvarianten.pdf
+	build/virusvarianten.pdf \
+	copy
 
 build/FB53-Coronafallzahlen.csv: FORCE | build
 	rm -f $@
@@ -62,8 +63,16 @@ build/virusvarianten.pdf: python/virusvarianten.py build/FB53-Coronafallzahlen-V
 
 
 copy:
-	cp build/*.png $(GOOGLEPATH)
 	cp build/*.pdf $(GOOGLEPATH)
+	rm -r python-png
+	cp -r python python-png
+	for file in python-png/*; do \
+		echo $${file}; \
+		sed -i 's/(constrained_layout=True)/(constrained_layout=True, figsize=(5, 5))/g' $$file; \
+	  sed -i 's/.pdf"/.png", dpi=333/g' $$file; \
+		TEXINPUTS="$$(pwd):" python $$file; \
+	done
+	cp build/*.png $(GOOGLEPATH)
 
 
 clean:
