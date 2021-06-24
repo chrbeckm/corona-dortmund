@@ -15,8 +15,7 @@ colors = ["blue", "orange", "green", "red", "purple"]
 fig, ax = plt.subplots(constrained_layout=True)
 plt.title("Virusvarianten")
 
-maximal = 0
-
+minimal = np.zeros(data[spalten[1]][data[spalten[0]] == data[spalten[0]][0]].size)
 for i in range(0, 2):
     mask = data[spalten[0]] == data[spalten[0]][i]
     ax.bar(
@@ -24,15 +23,16 @@ for i in range(0, 2):
         data[spalten[-1]][mask],
         color=colors[i],
         label=data[spalten[0]][i],
-        alpha=0.5,
+        bottom=minimal,
+        width=.9,
+        alpha=1
     )
-    if np.max(data[spalten[-1]][mask]) > maximal:
-        maximal = np.max(data[spalten[-1]][mask])
+    minimal += data[spalten[-1]][mask]
 ax.legend(loc="upper left")
-ax.set_ylim(0, maximal * 1.05)
+ax.set_ylim(0, np.max(minimal) * 1.05)
 
 ax2 = ax.twinx()
-maximal = 0
+minimal = np.zeros(data[spalten[1]][data[spalten[0]] == data[spalten[0]][2]].size)
 for i in range(2, 5):
     mask = data[spalten[0]] == data[spalten[0]][i]
     ax2.bar(
@@ -40,12 +40,13 @@ for i in range(2, 5):
         data[spalten[-1]][mask],
         color=colors[i],
         label=data[spalten[0]][i],
-        alpha=0.5,
+        bottom=minimal,
+        width=.5,
+        alpha=1
     )
-    if np.max(data[spalten[-1]][mask]) > maximal:
-        maximal = np.max(data[spalten[-1]][mask])
+    minimal += data[spalten[-1]][mask]
 ax2.legend(loc="center left")
-ax2.set_ylim(0, maximal * 1.05)
+ax2.set_ylim(0, np.max(minimal) * 1.05)
 ax2.set_ylabel(r"$\beta$" + "\n" + r"$\gamma$" + "\n" + r"$\delta$", rotation=0)
 
 ax.set_xlabel("Kalenderwoche")
