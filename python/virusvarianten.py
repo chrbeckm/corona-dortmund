@@ -24,8 +24,8 @@ for i in range(0, 2):
         color=colors[i],
         label=data[spalten[0]][i],
         bottom=minimal,
-        width=.9,
-        alpha=1
+        width=0.9,
+        alpha=1,
     )
     minimal += data[spalten[-1]][mask]
 ax.legend(loc="upper left")
@@ -41,8 +41,8 @@ for i in range(2, 5):
         color=colors[i],
         label=data[spalten[0]][i],
         bottom=minimal,
-        width=.5,
-        alpha=1
+        width=0.5,
+        alpha=1,
     )
     minimal += data[spalten[-1]][mask]
 ax2.legend(loc="center left")

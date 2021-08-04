@@ -130,5 +130,5 @@ ax.set_xlim(-1, data["Datum"].size)
 ax.set_xticks(data["Datum"][::-14][::-1])
 ax.set_xticklabels(data["Datum"][::-14][::-1], rotation=90)
 
-plt.legend(loc='upper left')
+plt.legend(loc="upper left")
 plt.savefig("build/aktuellVSinzidenz.pdf")
