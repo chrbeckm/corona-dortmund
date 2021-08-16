@@ -57,4 +57,4 @@ def animate(i):
 
 anim = FuncAnimation(fig, animate, init_func=init, frames=x[:-forerun])
 
-anim.save("build/animation/dortmund_animation.mp4", writer=PillowWriter(fps=10))
+anim.save("build/animation/dortmund_animation.gif", writer=PillowWriter(fps=10))
