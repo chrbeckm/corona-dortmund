@@ -1,0 +1,25 @@
+GOOGLEPATH=/mnt/e/cloud-google/corona
+
+all: build/animation/dortmund_animation.gif
+
+build/FB53-Coronafallzahlen.csv: FORCE | build
+	rm -f $@
+	wget https://opendata.dortmund.de/OpenDataConverter/download/Gesundheit/FB53-Coronafallzahlen.csv -P build
+	sed -i 's/,/./g' $@
+
+
+build/animation/dortmund_animation.gif: build/FB53-Coronafallzahlen.csv animation_script/animation.py | build/animation
+	TEXINPUTS="$$(pwd):" python animation_script/animation.py
+	cp $@ $(GOOGLEPATH)
+
+clean: rm -rf build/animation
+
+build:
+	mkdir -p build
+
+build/animation: | build
+	mkdir -p build/animation
+
+FORCE:
+
+.PHONY: FORCE all clean
