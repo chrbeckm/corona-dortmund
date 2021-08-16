@@ -26,9 +26,9 @@ ln2 = ax.bar(
     x,
     data["Zuwachs_positiver_Testergebnisse_zum_Vortag"][forerun:],
     color="red",
-    label="pos. Fälle",
+    label="Neuinfektionen",
 )
-ax.set_ylabel("Aktive Fälle / pos. Fälle")
+ax.set_ylabel("Aktive Fälle / Neuinfektionen")
 ax.set_ylim(0, np.max(data["aktuell_erkrankte_Personen"][forerun:]) * 1.01)
 
 ax2 = ax.twinx()

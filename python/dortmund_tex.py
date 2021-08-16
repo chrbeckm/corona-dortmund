@@ -28,7 +28,7 @@ plt.figure(constrained_layout=True)
 plt.bar(
     data["Datum"],
     data["Zuwachs_positiver_Testergebnisse_zum_Vortag"],
-    label="Positive Fälle",
+    label="Neuinfektionen",
 )
 
 plt.plot(
@@ -40,7 +40,7 @@ plt.plot([-1, data["Datum"].size], [50, 50], "-y", linewidth=0.5)
 plt.plot([-1, data["Datum"].size], [100, 100], "-r", linewidth=0.5)
 
 plt.title(
-    "Fälle pro Tag mit 7-Tage-Inzidenz, \n Stadt Dortmund: "
+    "Neuinfektionen pro Tag mit 7-Tage-Inzidenz, \n Stadt Dortmund: "
     + r"$\num{588250}$ Einwohnerïnnen"
 )
 plt.legend(loc="upper left")
