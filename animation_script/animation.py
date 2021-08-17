@@ -40,8 +40,8 @@ ln3 = ax2.plot(x, inzidenz, ".", color="orange", label="7-Tage Inzidenz")
 ax2.set_ylabel("7-Tage Inzidenz")
 ax2.set_ylim(0, np.max(inzidenz) * 1.01)
 
-fig.legend(loc=(0.03, 0.94), framealpha=1, ncol=3, handletextpad=0.3)
-ax.set_title("Covid-19 Zahlen aus Dortmund\n\n")
+fig.legend(loc=(0.14, 0.91), framealpha=1, ncol=2)
+ax.set_title("Covid-19 Zahlen aus Dortmund\n\n\n")
 ax2.grid()
 
 
