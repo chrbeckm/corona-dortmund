@@ -5,7 +5,7 @@ data = np.genfromtxt(
     "build/FB53-Coronafallzahlen-Stadtbezirke.csv",
     delimiter=";",
     names=True,
-    encoding="utf-8-sig",
+    encoding="cp1252",#utf-8-sig",
     dtype=None,
     missing_values="-",
 )
@@ -89,4 +89,4 @@ plt.legend(loc=(1.01, 0))
 plt.xlim(-0.1, len(daten[data.dtype.names[0]]) - 1.9)
 plt.ylim(0, 1.01 * maxdiff)
 plt.grid()
-plt.savefig("build/bezirke_insta_diferenz.pdf")
+plt.savefig("build/bezirke_insta_differenz.pdf")
